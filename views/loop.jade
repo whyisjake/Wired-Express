@@ -1,12 +1,16 @@
 .post-preview
 	.row
 
+		- var post_link = post.link.replace( 'http://www.wired.com', '' )
 		.col-lg-5.col-md-5
-				.thumb!= post.featured_image.content
+			a(href= post_link )
+				img( class="thumb" src=post.featured_image.attachment_meta.sizes.medium.url )
 
 		.col-lg-7.col-md-7
+			a(href= post_link )
 				h2.post-title!= post.title
 			.post-excerpt!= post.excerpt
-			p.post-meta= 'Posted by ' + post.author.name + ' on ' + post.date
+			- var time = moment( post.date ).format('MMMM Do YYYY, [at] h:mm');
+			p.post-meta.text-muted.small= 'Posted by ' + post.author.name + ' on ' + time
 
 	hr
