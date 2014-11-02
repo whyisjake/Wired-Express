@@ -20,6 +20,7 @@ else
 						if typeof( post ) !== 'undefined'
 							h1!= post.title
 						else
-							h1!= title
+							a(href="/", style="color:#fff;")
+								h1!= title
 						hr.small
 						span.subheading!= subtitle
