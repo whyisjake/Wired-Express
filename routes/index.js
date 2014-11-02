@@ -18,6 +18,38 @@ router.get( '/', function(req, res) {
 	);
 });
 
+// Let's add category archives pagination
+router.get( '/category/:slug', function(req, res) {
+	var slug = req.params.slug;
+	request(
+		{ url: endpoint + '/posts/?filter[category_name]=' + slug, json: true },
+		function( error, response, body ) {
+			res.render( 'category', {
+				posts: body,
+				title: 'Wired',
+				slug: slug
+			});
+		}
+	);
+});
+
+// Let's add category archives pagination
+router.get( '/category/:slug/page/:num', function(req, res) {
+	var slug = req.params.slug;
+	var num = req.params.num;
+	request(
+		{ url: endpoint + '/posts/?filter[category_name]=' + slug + '&page=' + num, json: true },
+		function( error, response, body ) {
+			res.render( 'category', {
+				posts: body,
+				title: 'Wired',
+				page: num,
+				slug: slug
+			});
+		}
+	);
+});
+
 // Let's add archive pagination
 router.get( '/page/:num', function(req, res) {
 	var num = req.params.num;
