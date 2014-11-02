@@ -1,8 +1,6 @@
 nav
 	ul.pager
-		if page > 1
-			li.previous
-				a(href="/page/" + ( page - 1 ) ) Previous
-
-			li.next
-				a(href="/page/" + ( ++page ) ) Next
+		li.previous
+			a(href="/page/" + ( page - 1 ) ) Previous
+		li.next
+			a(href="/page/" + ( ++page ) ) Next
