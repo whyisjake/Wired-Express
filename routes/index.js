@@ -17,6 +17,21 @@ router.get( '/', function(req, res) {
 	);
 });
 
+// Let's add archive pagination
+router.get( '/page/:num', function(req, res) {
+	var num = req.params.num;
+	request(
+		{ url: endpoint + '/posts/?page=' + num, json: true },
+		function( error, response, body ) {
+			res.render( 'archive', {
+				posts: body,
+				title: 'Wired',
+				page: num
+			});
+		}
+	);
+});
+
 router.get( '/:year/:month/:slug', function(req, res) {
 	var slug = req.params.slug;
 	request(
