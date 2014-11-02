@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	.container
+		.row
+			.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+
+				.post-excerpt!= post.content
+				p.post-meta.text-muted.small= 'Posted by ' + post.author.name + ' on ' + post_time
+
+				hr

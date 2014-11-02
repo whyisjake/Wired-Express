@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	div.posts
+		each post in posts
+
+			h1: a(href= post.link )!= post.title
+
+			div.post-content!= post.content

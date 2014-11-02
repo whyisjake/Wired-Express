@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	.container
+		.row
+			.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+
+				each post in posts
+
+					.post-preview
+						.row
+
+							.col-lg-5.col-md-5
+								a(href= post.link )
+									.thumb!= post.featured_image.content
+
+							.col-lg-7.col-md-7
+								a(href= post.link )
+									h2.post-title!= post.title
+								.post-excerpt!= post.excerpt
+								p.post-meta= 'Posted by ' + post.author.name + ' on ' + post.date
+
+						hr
