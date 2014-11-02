@@ -26,7 +26,8 @@ router.get( '/:year/:month/:slug', function(req, res) {
 				post: body[0],
 				title: body[0].title,
 				subtitle: body[0].excerpt,
-				post_time: moment( body[0].date ).format('MMMM Do YYYY, h:mm')
+				post_time: moment( body[0].date ).format('MMMM Do YYYY, h:mm'),
+				link: body[0].link.replace( 'http://wired.com/', '' )
 			});
 		}
 	);
