@@ -1,6 +1,21 @@
-nav
-	ul.pager
-		li.previous
-			a(href="/page/" + ( page - 1 ) ) Previous
-		li.next
-			a(href="/page/" + ( ++page ) ) Next
+if page == 0
+
+	nav
+		ul.pager
+			li.next
+				a(href="/page/2") Next
+
+else if page == 2
+	nav
+		ul.pager
+			li.previous
+				a(href="/") Previous
+			li.next
+				a(href="/page/" + ( ++page ) ) Next
+else
+	nav
+		ul.pager
+			li.previous
+				a(href="/page/" + ( page - 1 ) ) Previous
+			li.next
+				a(href="/page/" + ( ++page ) ) Next
