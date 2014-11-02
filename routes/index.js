@@ -11,7 +11,8 @@ router.get( '/', function(req, res) {
 			res.render( 'index', {
 				posts: body,
 				title: 'Wired',
-				subtitle: 'Get in-depth coverage of current and future trends in technology, and how they are shaping business, entertainment, communications, science, politics, and culture at Wired.com.'
+				subtitle: 'Get in-depth coverage of current and future trends in technology, and how they are shaping business, entertainment, communications, science, politics, and culture at Wired.com.',
+				page: 0
 			});
 		}
 	);
