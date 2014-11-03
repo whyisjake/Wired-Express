@@ -241,3 +241,19 @@ object {
 .gallery-caption {
 	display: block;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: 0;
+}
+
+.intro-header .site-heading h1,
+.intro-header .page-heading h1 {
+	font-size: 80px;
+	text-shadow: 1px 1px 5px #333;
+};
+}
