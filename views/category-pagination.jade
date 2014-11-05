@@ -1,0 +1,21 @@
+if page == 1
+	nav
+		ul.pager
+			li.next
+				a(href=slug + "/page/2") Next
+
+else if page == 2
+	nav
+		ul.pager
+			li.previous
+				a(href=slug + "/") Previous
+			li.next
+				a(href=( ++page ) ) Next
+
+else
+	nav
+		ul.pager
+			li.previous
+				a(href=( page - 1 ) ) Previous
+			li.next
+				a(href=( ++page ) ) Next
