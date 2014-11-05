@@ -4,7 +4,10 @@
 		- var post_link = post.link.replace( 'http://www.wired.com', '' )
 		.col-lg-5.col-md-5
 			a(href= post_link )
-				img( class="thumb" src=post.featured_image.attachment_meta.sizes.medium.url )
+				if post.featured_image
+					img( class="thumb" src=post.featured_image.attachment_meta.sizes.medium.url )
+				else
+					img( class="thumb" src='http://placehold.it/300x150' )
 
 		.col-lg-7.col-md-7
 			a(href= post_link )
