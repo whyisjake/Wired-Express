@@ -27,7 +27,8 @@ router.get( '/category/:slug', function(req, res) {
 			res.render( 'category', {
 				posts: body,
 				title: 'Wired',
-				slug: slug
+				slug: slug,
+				page: 1
 			});
 		}
 	);
