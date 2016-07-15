@@ -58,16 +58,18 @@ router.get( '/category/:slug/page/:num', function(req, res) {
 // Let's add archive pagination
 router.get( '/page/:num', function(req, res) {
 	var num = req.params.num;
-	request(
-		{ url: endpoint + '/posts/?page=' + num, json: true },
-		function( error, response, body ) {
-			res.render( 'archive', {
-				posts: body,
-				title: 'WIRED',
-				page: num
-			});
+	var slug = req.params.slug;
+	wp.posts().filter({ category_name: slug }).page( num ).embed().get(function( err, data ) {
+		if ( err ) {
+			console.log('womp womp');
 		}
-	);
+		res.render( 'archive', {
+			posts: data,
+			title: 'WIRED',
+			slug: slug,
+			page: num
+		});
+	});
 });
 
 router.get( '/:year/:month/:slug', function(req, res) {
