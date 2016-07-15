@@ -59,7 +59,7 @@ router.get( '/category/:slug/page/:num', function(req, res) {
 router.get( '/page/:num', function(req, res) {
 	var num = req.params.num;
 	var slug = req.params.slug;
-	wp.posts().filter({ category_name: slug }).page( num ).embed().get(function( err, data ) {
+	wp.posts().page( num ).embed().get(function( err, data ) {
 		if ( err ) {
 			console.log('womp womp');
 		}
