@@ -1,26 +1,11 @@
-if typeof( post ) !== 'undefined'
-	header.intro-header(style="background-image: url('" + post.featured_image.guid + "')")
-		.container
-			.row
-				.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-					.site-heading
-						if typeof( post ) !== 'undefined'
-							h1!= post.title
-						else
+header
+	.container
+		.row
+			.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+				.site-heading
+					if typeof( post ) !== 'undefined'
+						h1!= title
+					else
+						a(href="/", style="color:#000; ")
 							h1!= title
-						hr.small
-						span.subheading!= subtitle
-
-else
-	header.intro-header(style="background-image: url('/img/home-bg.jpg')")
-		.container
-			.row
-				.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-					.site-heading
-						if typeof( post ) !== 'undefined'
-							h1!= post.title
-						else
-							a(href="/", style="color:#fff;")
-								h1!= title
-						hr.small
-						span.subheading!= subtitle
+					hr.small

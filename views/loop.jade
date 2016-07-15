@@ -1,19 +1,20 @@
 .post-preview
 	.row
 
+		- var featuredmedia = 'wp:featuredmedia';
 		- var post_link = post.link.replace( 'http://www.wired.com', '' )
 		.col-lg-5.col-md-5
 			a(href= post_link )
-				if post.featured_image
-					img( class="thumb" src=post.featured_image.attachment_meta.sizes.medium.url )
+				if post._embedded['wp:featuredmedia']
+					img( class="thumb" src=post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url )
 				else
 					img( class="thumb" src='http://placehold.it/300x150' )
 
 		.col-lg-7.col-md-7
 			a(href= post_link )
-				h2.post-title!= post.title
-			.post-excerpt!= post.excerpt
-			- var time = moment( post.date ).format('MMMM Do YYYY, [at] h:mm');
-			p.post-meta.text-muted.small= 'Posted by ' + post.author.name + ' on ' + time
+				h2.post-title!= post.title.rendered
+			.post-excerpt!= post.excerpt.rendered
+			- var time = moment( post.date ).format('MMMM Do YYYY, [at] h:mm a');
+			p.post-meta.text-muted.small= 'Posted by ' + post._embedded.author[0].name + ' on ' + time
 
 	hr

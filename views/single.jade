@@ -5,7 +5,10 @@ block content
 		.row
 			.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
 
-				.post-excerpt!= post.content
-				p.post-meta.text-muted.small= 'Posted by ' + post.author.name + ' on ' + post_time
+				img(src=post._embedded['wp:featuredmedia'][0].source_url).img-responsive
+
+				.post-excerpt!= post.content.rendered
+				- var time = moment( post.date ).format('MMMM Do YYYY, [at] h:mm a');
+				p.post-meta.text-muted.small= 'Posted by ' + post._embedded.author[0].name + ' on ' + time
 
 				hr
